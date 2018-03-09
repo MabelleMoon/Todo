@@ -78,14 +78,20 @@ this.setState({
 
   }
  
+
+
   clearDone = (todoItems) => {
     let clearedItems = this.state.todoItems.filter((todo) => {
     return (todo.done === false)
-     
+  })
+   axios.post("http://localhost:8080/delete")
+    .then((res)=>{
+      console.log(res.data)
+      this.setState({
+        todoItems: res.data 
+      })
     })
-   this.setState({
-     todoItems: clearedItems 
-   })
+  
 
   //  axios.delete("http://localhost:8080/update", 
   //  { data: { foo: "bar" } });

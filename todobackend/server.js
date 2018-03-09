@@ -96,13 +96,18 @@ app.post('/update', (req, res) => {
   })
 })
 
-app.delete('/update', (req, res) => {
-  new Todos({id:req.body.id})
+app.post('/delete', (req, res) => {
+  Todos.where({done:true})
     .destroy()
-    .then(user => {
-      console.log("todo deleted")
-    })
-
+    .then(todo => {
+      Todos.fetchAll()
+      .then(results => {
+        const todos = results.models.map(todo => {
+          return todo.attributes
+        })
+        res.json(todos)
+      })
+})
 })
 
 
