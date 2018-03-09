@@ -92,11 +92,6 @@ this.setState({
       })
     })
   
-
-  //  axios.delete("http://localhost:8080/update", 
-  //  { data: { foo: "bar" } });
-    
-
   }
 
   render() {
