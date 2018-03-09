@@ -1,6 +1,7 @@
 .App {
   color: white;
   text-align: center;
+  list-style-type: none;
 }
 
 .App-logo {
